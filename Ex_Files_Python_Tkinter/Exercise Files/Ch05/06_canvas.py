@@ -27,27 +27,30 @@ canvas.delete(line)     # Deletes object
 canvas.delete(all)      # Completely clears canvas
 
 
-rect = canvas.create_rectangle(160, 120, 480, 360)
+rect = canvas.create_rectangle(160, 120, 480, 360)  # x,y coord pairs for opposite corners of rect.
 canvas.itemconfigure(rect, fill='yellow')
-oval = canvas.create_oval(160, 120, 480, 360)
-arc = canvas.create_arc(160, 1, 480, 240)
-canvas.itemconfigure(arc, start=0, extent=180, fill='green')
-poly = canvas.create_polygon(160, 360, 320, 480, 480, 360, fill='blue')
+oval = canvas.create_oval(160, 120, 480, 360)  # Bounding corners of oval
+arc = canvas.create_arc(160, 1, 480, 240)   # Create arc of 90 degrees within specified bounds
+canvas.itemconfigure(arc, start=0, extent=180, fill='green')    # Green arc of 180 degrees
+poly = canvas.create_polygon(160, 360, 320, 480, 480, 360, fill='blue') # Creates triangle
+
+# Displays text image center at specified coordinates
 text = canvas.create_text(320, 240, text='Python', font=('Courier', 32, 'bold'))
 
 logo = PhotoImage(file='python_logo.gif')  # Change path as needed
-image = canvas.create_image(320, 240, image=logo)
+image = canvas.create_image(320, 240, image=logo)   # Coord. represents center of image
 
-canvas.lift(text)
-canvas.lower(image)
-canvas.lower(image, text)
+
+canvas.lift(text)   # Moves text into foreground
+canvas.lower(image)     # Moves text all the way into background
+canvas.lower(image, text)   # Lowers image into position just below specified in second argument
 
 button = Button(canvas, text='Click Me')
-canvas.create_window(320, 60, window=button)
+canvas.create_window(320, 60, window=button)    # Creates button in specified location
 
-canvas.itemconfigure(rect, tags=('shape'))
+canvas.itemconfigure(rect, tags=('shape'))  # Tag is similar to "class" in HTML
 canvas.itemconfigure(oval, tags=('shape', 'round'))
-canvas.itemconfigure('shape', fill='grey')
-print(canvas.gettags(oval))
+canvas.itemconfigure('shape', fill='grey')  # Will change anything with tag "shape" to grey background
+print(canvas.gettags(oval))     # Returns the tags associated with oval object
 
 root.mainloop()
