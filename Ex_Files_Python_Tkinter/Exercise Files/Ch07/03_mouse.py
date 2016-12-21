@@ -18,15 +18,18 @@ def mouse_press(event):
 
 def draw(event):
     global prev
+
+    # Creates line, needs to keep track of previous x/y coord. and current x/y coord.
     canvas.create_line(prev.x, prev.y, event.x, event.y, width = 5)
-    prev = event
+
+    prev = event    # The last current x/y coord. is now the previous one after drawing that point on the canvas
     
 root = Tk()
 
 canvas = Canvas(root, width = 640, height = 480, 
                 background = 'white')
 canvas.pack()
-canvas.bind('<ButtonPress>', mouse_press)
+canvas.bind('<ButtonPress>', mouse_press)   # Make sure to include angle brackets!
 canvas.bind('<B1-Motion>', draw)
 
 root.mainloop()

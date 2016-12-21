@@ -4,12 +4,17 @@
 
 from tkinter import messagebox
 
-messagebox.showinfo(title = "A Friendly Message", message = 'Hello, Tkinter!')
-print(messagebox.askyesno(title = 'Hungry?', message = 'Do you want SPAM?'))
+# Pops up lowest severity message box
+messagebox.showinfo(title="A Friendly Message", message='Hello, Tkinter!')
+print(messagebox.askyesno(title='Hungry?', message='Do you want SPAM?'))    # Has option yes/no
 
 from tkinter import filedialog
-filename = filedialog.askopenfile()
+
+filename = filedialog.askopenfile()     # Popup window for opening a file
 print(filename.name)
 
 from tkinter import colorchooser
-print(colorchooser.askcolor(initialcolor = "#FFFFFF"))
+
+'''Makes pop up of color picker tool with initial color set at white. Tkinter will return the
+    rgb of any color that is selected along w/ its hex value'''
+print(colorchooser.askcolor(initialcolor="#FFFFFF"))
