@@ -13,14 +13,16 @@ entry.pack()
 entry.bind('<<Copy>>', lambda e: print('Copy'))
 entry.bind('<<Paste>>', lambda e: print('Paste'))
 
-entry.event_add('<<OddNumber>>', '1', '3', '5', '7', '9')
-entry.bind('<<OddNumber>>', lambda e: print('Odd Number!'))
+entry.event_add('<<OddNumber>>', '1', '3', '5', '7', '9')   # Create virtual event
+entry.bind('<<OddNumber>>', lambda e: print('Odd Number!'))     # Bind virtual event for it to run
 
-print(entry.event_info('<<OddNumber>>'))
+print(entry.event_info('<<OddNumber>>'))    # Prints out information about virtual event
 
+# Will trigger event automatically
 entry.event_generate('<<OddNumber>>')
 entry.event_generate('<<Paste>>')
 
+# Deletes the virtual event
 entry.event_delete('<<OddNumber>>')
 
 root.mainloop()

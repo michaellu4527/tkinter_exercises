@@ -7,7 +7,7 @@ from tkinter import ttk
 
 class Feedback:
 
-    def __init__(self, master):    
+    def __init__(self, master):    # Master is top level Tk form
         pass
 
             
@@ -17,4 +17,4 @@ def main():
     feedback = Feedback(root)
     root.mainloop()
     
-if __name__ == "__main__": main()
+if __name__ == "__main__": main()   # Will run only if python file is run as main script
